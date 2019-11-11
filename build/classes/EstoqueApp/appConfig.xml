@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xml encoding="UTF8">
+	<configuration>
+		<appsettings>
+			<server>
+				remotemysql.com
+			</server>
+			<port>
+				3306
+			</port>
+			<database>
+				sIxh05JdC7
+			</database>
+		</appsettings>
+	</configuration>
+</xml>
