@@ -17,11 +17,10 @@ import java.util.List;
  * @author usrlab09
  */
 public class ProdutoNG extends BaseNG{
-    private Connection conexao;
-    private Object BaseDados;
+    private Connection conexao;    
 
-    public ProdutoNG(Sessao sessao) {
-        this.setSessao(sessao);
+    public ProdutoNG(Sessao sessao) throws Exception {
+        
         try {
             this.conexao = ConnectionFactory.createConnection();
         } catch (SQLException ex) {

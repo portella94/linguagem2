@@ -3,22 +3,9 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/usrlab09/Downloads/ProjetoBase/src/Entidades/Sessao.java</file>
-            <file>file:/C:/Users/usrlab09/Downloads/ProjetoBase/src/BaseDados/DAOs/ProdutoDAO.java</file>
-            <file>file:/C:/Users/usrlab09/Downloads/ProjetoBase/src/Entidades/Produto.java</file>
-            <file>file:/C:/Users/usrlab09/Downloads/ProjetoBase/src/Entidades/ObjetoGenerico.java</file>
-            <file>file:/C:/Users/usrlab09/Downloads/ProjetoBase/src/Shared/MetodosComuns.java</file>
-            <file>file:/C:/Users/usrlab09/Downloads/ProjetoBase/src/Entidades/Parametros.java</file>
-            <file>file:/C:/Users/usrlab09/Downloads/ProjetoBase/src/EstoqueApp/GUIProduto.java</file>
-            <file>file:/C:/Users/usrlab09/Downloads/ProjetoBase/src/Negocio/BaseNG.java</file>
-            <file>file:/C:/Users/usrlab09/Downloads/ProjetoBase/src/BaseDados/BaseDAO.java</file>
-            <file>file:/C:/Users/usrlab09/Downloads/ProjetoBase/src/EstoqueApp/appConfig.xml</file>
-            <file>file:/C:/Users/usrlab09/Downloads/ProjetoBase/src/BaseDados/ConnectionFactory.java</file>
-            <file>file:/C:/Users/usrlab09/Downloads/ProjetoBase/src/Shared/ReadXMLFile.java</file>
-            <file>file:/C:/Users/usrlab09/Downloads/ProjetoBase/src/BaseDados/DAOs/PessoaDAO.java</file>
-            <file>file:/C:/Users/usrlab09/Downloads/ProjetoBase/src/Negocio/PessoaNG.java</file>
-            <file>file:/C:/Users/usrlab09/Downloads/ProjetoBase/src/Entidades/Pessoa.java</file>
-            <file>file:/C:/Users/usrlab09/Downloads/ProjetoBase/src/Negocio/ProdutoNG.java</file>
+            <file>file:/C:/Users/usrlab15/Downloads/avaliacao3/linguagem2/src/EstoqueApp/GUIPesquisa.java</file>
+            <file>file:/C:/Users/usrlab15/Downloads/avaliacao3/linguagem2/src/EstoqueApp/GUIProduto.java</file>
+            <file>file:/C:/Users/usrlab15/Downloads/avaliacao3/linguagem2/src/EstoqueApp/GUILogin.java</file>
         </group>
     </open-files>
 </project-private>

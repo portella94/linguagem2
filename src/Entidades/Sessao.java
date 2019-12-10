@@ -4,16 +4,24 @@ public final class Sessao {
 
     private static Sessao Instance;
 
+    private Usuario usuario;
+
+    private Parametros parametros;
+
+    public Sessao() {
+    }
+
+    public Sessao(Parametros parametros) {
+        this.Instance = new Sessao();
+        this.Instance.parametros = parametros;
+    }
+
     public static Sessao GetInstance() {
         if (Instance == null) {
             Instance = new Sessao();
         }
         return Instance;
     }
-
-    private Usuario usuario;
-    
-    private Parametros parametros;    
 
     public Parametros getParametros() {
         return parametros;
@@ -26,10 +34,9 @@ public final class Sessao {
     public Usuario getUsuario() {
         return usuario;
     }
-    
+
     public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
     }
-    
 
 }

@@ -17,8 +17,7 @@ public abstract class BaseNG {
     }
 
     public BaseNG(Sessao sessao) {
-        this.sessao = sessao;
-
+        this.setSessao(sessao);        
     }
 
     public BaseNG() {

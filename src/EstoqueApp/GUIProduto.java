@@ -5,7 +5,9 @@
  */
 package EstoqueApp;
 
-import Entidades.Parametros;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -13,16 +15,13 @@ import Entidades.Parametros;
  */
 public class GUIProduto extends javax.swing.JFrame {
 
+    public GUIProduto() throws Exception {
+        initComponents();
+    }
+
     /**
      * Creates new form GUIProduto
      */
-    Parametros parametros;
-    public GUIProduto() {
-        initComponents();
-        this.parametros = new Parametros();
-        
-    }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -38,16 +37,29 @@ public class GUIProduto extends javax.swing.JFrame {
         txtMarca = new javax.swing.JTextField();
         lblMarca = new javax.swing.JLabel();
         btnSalvar = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        btnCancelar = new javax.swing.JButton();
+        btnExcluir = new javax.swing.JButton();
+        btnPesqMarca = new javax.swing.JButton();
+        txtMarca1 = new javax.swing.JTextField();
+        lblMarca1 = new javax.swing.JLabel();
+        btnPesqUni = new javax.swing.JButton();
+        btnPesqCor = new javax.swing.JButton();
+        txtMarca2 = new javax.swing.JTextField();
+        lblMarca2 = new javax.swing.JLabel();
+        lblMarca3 = new javax.swing.JLabel();
+        txtMarca3 = new javax.swing.JTextField();
+        btnPesqCat = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tblLista = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(640, 480));
 
         lblTitulo.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         lblTitulo.setText("Produto");
 
         lblNome.setText("Nome:");
+
+        txtMarca.setEditable(false);
 
         lblMarca.setText("Marca:");
 
@@ -58,9 +70,69 @@ public class GUIProduto extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setText("Cancelar");
+        btnCancelar.setText("Cancelar");
+        btnCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancelarActionPerformed(evt);
+            }
+        });
 
-        jButton2.setText("Excluir");
+        btnExcluir.setText("Excluir");
+        btnExcluir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnExcluirActionPerformed(evt);
+            }
+        });
+
+        btnPesqMarca.setText("Buscar");
+        btnPesqMarca.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPesqMarcaActionPerformed(evt);
+            }
+        });
+
+        txtMarca1.setEditable(false);
+
+        lblMarca1.setText("Unidade:");
+
+        btnPesqUni.setText("Buscar");
+        btnPesqUni.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPesqUniActionPerformed(evt);
+            }
+        });
+
+        btnPesqCor.setText("Buscar");
+        btnPesqCor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPesqCorActionPerformed(evt);
+            }
+        });
+
+        txtMarca2.setEditable(false);
+
+        lblMarca2.setText("Cor:");
+
+        lblMarca3.setText("Categoria:");
+
+        txtMarca3.setEditable(false);
+
+        btnPesqCat.setText("Buscar");
+        btnPesqCat.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPesqCatActionPerformed(evt);
+            }
+        });
+
+        tblLista.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "ID", "Nome", "Marca", "Unidade", "Cor", "Categoria"
+            }
+        ));
+        jScrollPane1.setViewportView(tblLista);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -70,25 +142,53 @@ public class GUIProduto extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(lblTitulo)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 404, Short.MAX_VALUE)
+                                .addComponent(btnSalvar)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnCancelar)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnExcluir)))
+                        .addGap(13, 13, 13))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(lblNome)
                             .addComponent(lblMarca))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtNome)
-                            .addComponent(txtMarca))
-                        .addGap(163, 163, 163))))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(414, Short.MAX_VALUE)
-                .addComponent(btnSalvar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton2)
-                .addGap(13, 13, 13))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(txtNome)
+                                .addGap(163, 163, 163))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(txtMarca, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(btnPesqMarca)
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblTitulo)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                    .addComponent(lblMarca2)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(txtMarca2)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(btnPesqCor))
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                    .addComponent(lblMarca1)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(txtMarca1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(btnPesqUni)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(lblMarca3)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(txtMarca3, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(btnPesqCat)))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -102,12 +202,30 @@ public class GUIProduto extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtMarca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblMarca))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 337, Short.MAX_VALUE)
+                    .addComponent(lblMarca)
+                    .addComponent(btnPesqMarca))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtMarca1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblMarca1)
+                    .addComponent(btnPesqUni))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtMarca2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblMarca2)
+                    .addComponent(btnPesqCor))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtMarca3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblMarca3)
+                    .addComponent(btnPesqCat))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 235, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnSalvar)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
+                    .addComponent(btnCancelar)
+                    .addComponent(btnExcluir))
                 .addContainerGap())
         );
 
@@ -115,8 +233,35 @@ public class GUIProduto extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
-        // TODO add your handling code here:
+        String oTexto = txtNome.getText();
     }//GEN-LAST:event_btnSalvarActionPerformed
+
+    private void btnPesqMarcaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesqMarcaActionPerformed
+        GUIPesquisa pesquisa = new GUIPesquisa("Marca");
+        pesquisa.setVisible(true);
+        int idRetorno = pesquisa.getIdRetorno();
+    }//GEN-LAST:event_btnPesqMarcaActionPerformed
+
+    private void btnPesqUniActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesqUniActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnPesqUniActionPerformed
+
+    private void btnPesqCorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesqCorActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnPesqCorActionPerformed
+
+    private void btnPesqCatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesqCatActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnPesqCatActionPerformed
+
+    private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnCancelarActionPerformed
+
+    private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
+        DefaultTableModel model = new DefaultTableModel();
+            model = (DefaultTableModel) tblLivros.getModel();
+    }//GEN-LAST:event_btnExcluirActionPerformed
 
     /**
      * @param args the command line arguments
@@ -148,19 +293,35 @@ public class GUIProduto extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new GUIProduto().setVisible(true);
+                try {
+                    new GUIProduto().setVisible(true);
+                } catch (Exception ex) {
+                    Logger.getLogger(GUIProduto.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnCancelar;
+    private javax.swing.JButton btnExcluir;
+    private javax.swing.JButton btnPesqCat;
+    private javax.swing.JButton btnPesqCor;
+    private javax.swing.JButton btnPesqMarca;
+    private javax.swing.JButton btnPesqUni;
     private javax.swing.JButton btnSalvar;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblMarca;
+    private javax.swing.JLabel lblMarca1;
+    private javax.swing.JLabel lblMarca2;
+    private javax.swing.JLabel lblMarca3;
     private javax.swing.JLabel lblNome;
     private javax.swing.JLabel lblTitulo;
+    private javax.swing.JTable tblLista;
     private javax.swing.JTextField txtMarca;
+    private javax.swing.JTextField txtMarca1;
+    private javax.swing.JTextField txtMarca2;
+    private javax.swing.JTextField txtMarca3;
     private javax.swing.JTextField txtNome;
     // End of variables declaration//GEN-END:variables
 }

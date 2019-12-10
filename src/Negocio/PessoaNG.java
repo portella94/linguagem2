@@ -10,7 +10,6 @@ import Entidades.Pessoa;
 import Entidades.Sessao;
 import java.sql.Connection;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -20,8 +19,8 @@ import java.util.List;
 public class PessoaNG extends BaseNG{
     private Connection conexao;
 
-    public PessoaNG(Sessao sessao) {
-        this.setSessao(sessao);
+    public PessoaNG(Sessao sessao) throws Exception {
+        
         try {
             this.conexao = ConnectionFactory.createConnection();
         } catch (SQLException ex) {

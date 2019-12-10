@@ -8,20 +8,30 @@ import java.sql.SQLException;
 
 public class ConnectionFactory {
 
-    private static Parametros parametros;
-
     public ConnectionFactory() {
-        this.parametros = Sessao.GetInstance().getParametros();
     }
 
-    public static Connection createConnection() throws SQLException {
-        String url = "jdbc:mysql://" + parametros.getServer() + ":" + parametros.getPorta() + "/" + parametros.getDatabase();
-        String user = "sIxh05JdC7"; //nome do usuário do MySQL
-        String password = "3PhWMPjJY7"; //senha do MySQL
+    public static Connection createConnection() throws Exception {
+        String url = "jdbc:mysql://" + getServer() + ":" + getPort() + "/" + getDatabase()
+                + "?useLegacyDatetimeCode=false&serverTimezone=America/Sao_Paulo";
+        String user = "sIxh05JdC7"; // nome do usuário do MySQL
+        String password = "3PhWMPjJY7"; // senha do MySQL
 
         Connection conexao = null;
         conexao = DriverManager.getConnection(url, user, password);
 
         return conexao;
     }
+
+    private static String getServer() {
+        return Sessao.GetInstance().getParametros().getServer();
+    }
+
+    private static String getPort() {
+        return Sessao.GetInstance().getParametros().getPort();
+    }
+
+    private static String getDatabase() {
+        return Sessao.GetInstance().getParametros().getDatabase();
+    }    
 }
